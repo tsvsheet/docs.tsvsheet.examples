@@ -1,17 +1,21 @@
 {
-  "baseURL": "https://example.org/",
-  "title": "Project Documentation",
+  "baseURL": "https://tsvsheet.github.io/docs.tsvsheet.examples/",
+  "title": "tsvsheet.examples",
   "publishDir": "_site",
   "enableRobotsTXT": true,
   "markup": {
     "goldmark": {
       "renderHooks": {
-        "link": { "useEmbedded": "fallback" },
-        "image": { "useEmbedded": "fallback" }
+        "link": {
+          "useEmbedded": "fallback"
+        },
+        "image": {
+          "useEmbedded": "fallback"
+        }
       }
     }
   },
   "params": {
-    "description": "Public documentation for the project."
+    "description": "The example .tsvt corpus \u2014 every tsvsheet language feature as a worked, runnable sheet, each openable in the playground."
   }
 }
