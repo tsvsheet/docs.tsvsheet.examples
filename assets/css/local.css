@@ -1,4 +1,4 @@
-/* examples.css — the one thing the shared tsvsheet theme does not style: the
+/* local.css — the theme loads this site-local sheet via its opt-in hook; the one thing the shared theme does not style: the
    corpus table. It sits inside an addressed cell, scrolls horizontally on narrow
    viewports, and draws entirely from the shared theme's palette variables so it
    matches tsvsheet.com in both light and dark. */
