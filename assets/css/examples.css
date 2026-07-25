@@ -1,0 +1,39 @@
+/* examples.css — the one thing the shared tsvsheet theme does not style: the
+   corpus table. It sits inside an addressed cell, scrolls horizontally on narrow
+   viewports, and draws entirely from the shared theme's palette variables so it
+   matches tsvsheet.com in both light and dark. */
+
+.cellbody table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.4rem 0;
+  display: block;
+  overflow-x: auto;
+}
+
+.cellbody table thead th {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--dim);
+  text-align: left;
+  white-space: nowrap;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 2px solid var(--pine);
+}
+
+.cellbody table tbody td {
+  border-top: 1px solid var(--rule);
+  padding: 0.6rem 0.7rem;
+  vertical-align: top;
+  color: var(--dim);
+}
+
+.cellbody table tbody td:first-child {
+  white-space: nowrap;
+}
+
+.cellbody table code {
+  white-space: nowrap;
+}

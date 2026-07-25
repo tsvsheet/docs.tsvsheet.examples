@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Examples
 ---
 
 **Every tsvsheet language feature as a worked, runnable sheet.** Each example in [tsvsheet/tsvsheet.examples](https://github.com/tsvsheet/tsvsheet.examples) is a single `.tsvt` spreadsheet, and every **Try** link below opens it in the [playground](https://tsvsheet.com/playground/) — the sheet travels in the URL fragment, so nothing is uploaded. To run them locally, [install the tsvsheet CLI](https://tsvsheet.com/install/) and clone the repo.

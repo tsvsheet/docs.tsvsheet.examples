@@ -1,23 +1,32 @@
-{{- /* Managed by nicerobot/tools.repository (distribute-docs) */ -}}
+{{ define "head" }}
+{{ $css := resources.Get "css/examples.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
 {{ define "main" }}
-{{- $id := partialCached "identity.html" . -}}
-<div class="page">
-<article class="sheet">
-<section class="name-block">
-<h2 class="man-head">Name</h2>
-<h1 class="name-line"><span class="name-project">{{ $id.project }}</span><span class="name-dash"> — </span>{{ with site.Params.description }}{{ . }}{{ else }}public documentation{{ if $id.org }} for {{ $id.org }}/{{ $id.project }}{{ end }}{{ end }}</h1>
-</section>
-{{ .Content }}
-{{ with .Pages }}
-<section class="index">
-<h2 class="man-head">Index</h2>
-<ul class="index-list">
-{{ range . }}
-<li><a href="{{ .RelPermalink }}"><span class="index-title">{{ .Title }}</span><span class="leader" aria-hidden="true"></span>{{ with or .Description .Summary }}<span class="index-desc">{{ . | plainify | truncate 64 }}</span>{{ end }}</a></li>
-{{ end }}
-</ul>
-</section>
-{{ end }}
-</article>
+<div class="sheet">
+  {{ partial "site-bar.html" . }}
+
+  <main>
+    {{/* Each h2 opens a new addressed cell, matching tsvsheet.com's one-section-per-address grid. */}}
+    {{ $chunks := split .Content "<h2" }}
+    <section class="row">
+      <span class="addr" aria-hidden="true">A1</span>
+      <div class="cellbody">
+        <h1>{{ .Title }}</h1>
+        {{ with .Site.Params.description }}<p class="lede">{{ . }}</p>{{ end }}
+        {{ index $chunks 0 | safeHTML }}
+      </div>
+    </section>
+    {{ range $i, $chunk := after 1 $chunks }}
+    <section class="row">
+      <span class="addr" aria-hidden="true">A{{ add $i 2 }}</span>
+      <div class="cellbody">
+        {{ printf "<h2%s" $chunk | safeHTML }}
+      </div>
+    </section>
+    {{ end }}
+  </main>
+
+  {{ partial "site-foot.html" . }}
 </div>
 {{ end }}
