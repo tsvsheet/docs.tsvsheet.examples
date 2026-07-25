@@ -34,6 +34,12 @@
   white-space: nowrap;
 }
 
+/* The "Try" column (last) holds a short "playground →" link — never wrap it
+   between the word and its arrow. */
+.cellbody table td:last-child {
+  white-space: nowrap;
+}
+
 .cellbody table code {
   white-space: nowrap;
 }
